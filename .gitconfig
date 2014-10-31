@@ -1,0 +1,30 @@
+[user]
+	name = Olga Botvinnik
+	email = olga.botvinnik@gmail.com
+[core]
+	editor = /usr/bin/emacs
+	excludesfile = /Users/olga/.gitignore_global
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[gc]
+	auto = 1
+[merge]
+	summary = true
+[credential]
+	helper = osxkeychain
+[alias]
+	slog = log --oneline --topo-order --graph
+	cp = cherry-pick -x
+	b = branch -v
+	r = remote -v
+	t = tag -l
+	unstage = reset HEAD
+	uncommit = reset --soft HEAD^
+[help]
+	autocorrect = 1
+[mergetool "nbmerge"]
+	cmd = nbmerge $LOCAL $BASE $REMOTE $MERGED

@@ -1,0 +1,30 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+#source ~/gscripts/bashrc/tscc_bash_settings_current
+
+# User specific environment and startup programs
+
+#PATH=/home/obotvinnik/bin/jre1.7.0_07/bin:/home/obotvinnik/packages/java-genomics-toolkit:/home/obotvinnik/packages/epd-7.3-2-rh3-x86_64/bin:$HOME/bin:$PATH:$HOME/packages/weblogo
+
+#PATH=$PATH:/home/obotvinnik/packages/homer/.//bin/
+
+alias 'ucsd-git-pull'='env GIT_SSL_NO_VERIFY=true git pull origin master'
+alias 'ucsd-git-push'='env GIT_SSL_NO_VERIFY=true git push origin master'
+
+export PATH
+
+eval "`dircolors -b ~/.dircolors_test`"
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -lha' 
+alias l='ls -CF' 
+alias rotation='cd ~/rotations/q3-spring-pevzner'
+alias qstato='qstat -u obotvinnik'
+
+#source ~/virtualenvs/envy/bin/activate
+#export PATH=~/virtualenvs/envy/bin:/projects/ps-yeolab/software/bin:$PATH
