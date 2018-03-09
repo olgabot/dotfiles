@@ -9,6 +9,6 @@ Collection of rc files for easy portability
 1-liner to change to home directory, clone, and copy rcfiles
 
 ```
-cd ~/ && git clone https://github.com/olgabot/rcfiles && cp rcfiles/* .
+cd ~/ && git clone https://github.com/olgabot/rcfiles && cp rcfiles/.* .
 ```
 
