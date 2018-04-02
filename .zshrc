@@ -129,7 +129,7 @@ alias ndnd='ssh olga@ndnd.czbiohub.org'
 # Don't show user@hostname
 # From https://stackoverflow.com/questions/28491458/zsh-agnoster-theme-showing-machine-name
 # redefine prompt_context for hiding user@hostname
-prompt_context () { }
+# prompt_context () { }
 
 
 # Non-ugly colors in terminal emacs
