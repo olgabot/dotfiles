@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/olgabot/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="agnosterzak"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -93,13 +93,19 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
+eval "`dircolors -b ~/.dircolors_test`"
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -lha'
+alias l='ls -CF' # .bashrc
+
 # Alias hub as git
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
 
 # Alias to Triton Supercomputing Cluster (TSCC)
 alias tscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 # added by travis gem
-[ -f /Users/olgabot/.travis/travis.sh ] && source /Users/olgabot/.travis/travis.sh
+#[ -f /Users/olgabot/.travis/travis.sh ] && source /Users/olgabot/.travis/travis.sh
 
 # Alias to CZ biohub logins
 alias sshdobby="ssh dobby@ds05.czbiohub.org"
@@ -128,5 +134,5 @@ prompt_context () { }
 
 # Non-ugly colors in terminal emacs
 export TERM=xterm-256color
-. /Users/olgabot/anaconda3/etc/profile.d/conda.sh
-conda activate
+# . /Users/olgabot/anaconda3/etc/profile.d/conda.sh
+# conda activate
