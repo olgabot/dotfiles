@@ -9,7 +9,7 @@ Collection of rc files for easy portability
 1-liner to change to home directory, clone, and copy rcfiles
 
 ```
-cd ~/ && git clone https://github.com/olgabot/rcfiles && cp rcfiles/.* .
+cd ~/ mkdir code && cd code && git clone https://github.com/olgabot/rcfiles && cp rcfiles/.* ~/
 ```
 
 ### Ubuntu
@@ -18,6 +18,7 @@ Also need to install ZSH, oh-my-zsh and [AgnosterZak theme](https://github.com/z
 ```
 sudo apt install --yes zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+cd ~/code
 git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme
-cp ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
+cp ~/code/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 ```
