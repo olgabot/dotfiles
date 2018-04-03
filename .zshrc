@@ -93,7 +93,7 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
-eval "`dircolors -b ~/.dircolors_test`"
+# eval "`dircolors -b ~/.dircolors_test`"
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -lha'
