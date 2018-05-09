@@ -136,3 +136,6 @@ alias ndnd='ssh olga@ndnd.czbiohub.org'
 export TERM=xterm-256color
 # . /Users/olgabot/anaconda3/etc/profile.d/conda.sh
 # conda activate
+
+export PATH=$HOME/anaconda/bin:$PATH
+
