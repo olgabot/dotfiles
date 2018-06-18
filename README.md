@@ -9,5 +9,5 @@ Collection of rc files for easy portability
 
 
 ```
-cd ~/ && mkdir code && cd code && git clone https://github.com/olgabot/rcfiles && bash rcfiles/init.sh
+git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Makefile && cd ~ && make
 ```
