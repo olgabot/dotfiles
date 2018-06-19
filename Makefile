@@ -6,7 +6,10 @@ install:
 	sudo chsh -s `which zsh`
 
 copy:
-	cp -v ~/rcfiles/.* ~/
+	cp -v ~/rcfiles/.screenrc ~
+	cp -v ~/rcfiles/.zshrc ~
+	cp -v ~/rcfiles/.gitconfig ~
+	cp -v ~/rcfiles/.gitignore ~
 	cp -vr ~/rcfiles/.emacs.d ~/
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
