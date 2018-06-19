@@ -19,4 +19,4 @@ agnosterzak-ohmyzsh-theme:
 
 
 hc-zenburn-emacs:
-	git clone https://github.com/edran/hc-zenburn-emacs ~/code/hc-zenburn-emacs
+	git clone https://github.com/edran/hc-zenburn-emacs
