@@ -1,4 +1,4 @@
-all:
+all: install agnosterzak-ohmyzsh-theme hc-zenburn-emacs copy
 
 install:
 	sudo apt install --yes zsh emacs tree git-core
