@@ -9,5 +9,5 @@ Collection of rc files for easy portability
 
 
 ```
-git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Makefile ~ && cd ~ && make install
+git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Makefile ~ && cd ~ && make
 ```
