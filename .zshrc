@@ -139,3 +139,7 @@ export TERM=xterm-256color
 
 export PATH=$HOME/anaconda/bin:$PATH
 
+# Don't ask for git passwords - Unix systems
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=36000'
+
