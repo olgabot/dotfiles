@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/olgabot/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx python screen)
+plugins=(git osx python aws screen terminalapp common-aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,24 +93,20 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
-# eval "`dircolors -b ~/.dircolors_test`"
-alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias la='ls -lha'
-alias l='ls -CF' # .bashrc
-
 # Alias hub as git
-# eval "$(hub alias -s)"
+eval "$(hub alias -s)"
 
 # Alias to Triton Supercomputing Cluster (TSCC)
 alias tscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 # added by travis gem
-#[ -f /Users/olgabot/.travis/travis.sh ] && source /Users/olgabot/.travis/travis.sh
+[ -f /Users/olgabot/.travis/travis.sh ] && source /Users/olgabot/.travis/travis.sh
 
 # Alias to CZ biohub logins
 alias sshdobby="ssh dobby@ds05.czbiohub.org"
 alias sshutility="ssh utility@ds06.czbiohub.org"
 alias sshfry="ssh botvinnik@fry.czbiohub.org"
+alias fry=sshfry
+
 
 # CZ Biohub vpn
 alias czbvpn="sudo openconnect --user olga.botvinnik https://64.71.0.146 --servercert sha256:0b3c46f6bee2673ee9be9b4227f632fa87b52333949003f4f2d155a70241eacd"
@@ -129,17 +125,42 @@ alias ndnd='ssh olga@ndnd.czbiohub.org'
 # Don't show user@hostname
 # From https://stackoverflow.com/questions/28491458/zsh-agnoster-theme-showing-machine-name
 # redefine prompt_context for hiding user@hostname
-# prompt_context () { }
+prompt_context () { }
 
 
 # Non-ugly colors in terminal emacs
 export TERM=xterm-256color
-# . /Users/olgabot/anaconda3/etc/profile.d/conda.sh
-# conda activate
+
 
 export PATH=$HOME/anaconda/bin:$PATH
 
 # Don't ask for git passwords - Unix systems
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=36000'
+
+. $HOME/anaconda/etc/profile.d/conda.sh
+conda activate
+
+
+# Add ssh keys
+eval $(ssh-agent)
+ssh-add ~/.ssh/aegea.launch.olgabot.Olgas-MacBook-Pro.pem
+ssh-add ~/.ssh/olgabot-czirna1.pem
+
+# Add Go packages to Path
+export PATH="$PATH:$HOME/go/bin"
+
+# Tell Reflow to use ~/.aws folder for credentials
+export AWS_SDK_LOAD_CONFIG=1
+
+# Various tunnels
+alias tunnelndndrstudio="ssh -NL 8787:localhost:8787 olga@ndnd.czbiohub.org &"
+alias tunnelfrykeras="ssh -NL 7780:localhost:7780 botvinnik@fry.czbiohub.org  &"
+alias tunnelfryfloydhub="ssh -NL 8877:localhost:8877 botvinnik@fry.czbiohub.org  &"
+
+# Fix video not connected on mac
+alias fixvideo='sudo killall VDCAssistant'
+
+# Aegea launch with correct IAM role for s3 copying
+alias alaunch='aegea launch --iam-role S3fromEC2'
 
