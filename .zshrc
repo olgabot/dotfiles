@@ -130,16 +130,12 @@ prompt_context () { }
 
 # Non-ugly colors in terminal emacs
 export TERM=xterm-256color
+#export PATH=/Users/olgabot/anaconda/bin:$PATH
+#. $HOME/anaconda/etc/profile.d/conda.sh
+#conda activate base
 
-
-export PATH=$HOME/anaconda/bin:$PATH
-
-# Don't ask for git passwords - Unix systems
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=36000'
-
-. $HOME/anaconda/etc/profile.d/conda.sh
-conda activate
+# added by Anaconda3 5.2.0 installer
+export PATH="$HOME/anaconda/bin:$PATH"
 
 
 # Add ssh keys
@@ -164,3 +160,6 @@ alias fixvideo='sudo killall VDCAssistant'
 # Aegea launch with correct IAM role for s3 copying
 alias alaunch='aegea launch --iam-role S3fromEC2'
 
+
+alias ls="exa --git"
+alias ll="ls -lha"
