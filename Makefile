@@ -1,10 +1,17 @@
-all: install agnosterzak-ohmyzsh-theme hc-zenburn-emacs copy
+all: install exa agnosterzak-ohmyzsh-theme hc-zenburn-emacs copy
 
 install:
 	sudo apt update
 	sudo apt install --yes zsh emacs tree git-core
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	sudo chsh -s `which zsh`
+	
+	
+exa:
+	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
+	unzip exa-linux-x86_64-0.8.0.zip
+	sudo mv exa-linux-x86_64 /usr/local/bin/exa
+	sudo chmod ugo+x /usr/local/bin/exa
 
 copy:
 	cp -v ~/rcfiles/.screenrc ~
