@@ -22,8 +22,8 @@ copy:
 	cp -vr ~/rcfiles/.emacs.d ~/
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
-	cp -r ~/code/fast-syntax-highlighting ~/.oh-my-zsh/plugins
-	cp -r ~/code/zsh-autosuggestions ~/.oh-my-zsh/plugins
+	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
+	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
 
 zsh-extras:
 	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
