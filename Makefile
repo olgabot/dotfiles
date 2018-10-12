@@ -1,4 +1,4 @@
-all: install exa agnosterzak-ohmyzsh-theme hc-zenburn-emacs copy
+all: install exa zsh-extras hc-zenburn-emacs copy
 
 install:
 	sudo apt update
@@ -22,9 +22,13 @@ copy:
 	cp -vr ~/rcfiles/.emacs.d ~/
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
+	cp -r ~/code/fast-syntax-highlighting ~/.oh-my-zsh/plugins
+	cp -r ~/code/zsh-autosuggestions ~/.oh-my-zsh/plugins
 
-agnosterzak-ohmyzsh-theme:
+zsh-extras:
 	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
+	git clone https://github.com/zdharma/fast-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions
 
 
 hc-zenburn-emacs:
