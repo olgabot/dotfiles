@@ -1,6 +1,3 @@
-[user]
-	name = olgabot
-	email = olga.botvinnik@gmail.com
 [credential]
 	helper = osxkeychain
 [color]
