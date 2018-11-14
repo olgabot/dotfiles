@@ -2,7 +2,7 @@ all: install exa zsh-extras hc-zenburn-emacs copy
 
 install:
 	sudo apt update
-	sudo apt install --yes zsh emacs tree git-core unzip
+	sudo apt install --yes zsh emacs tree git-core unzip htop
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	sudo chsh -s `which zsh`
 	sudo usermod -s /bin/zsh ubuntu
