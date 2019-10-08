@@ -1,18 +1,35 @@
-all: install exa zsh-extras hc-zenburn-emacs copy
 
-install:
+all_ubuntu: install_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy
+all_mac: install_mac zsh-extras hc-zenburn-emacs copy
+
+install_ubuntu:
 	sudo apt update
 	sudo apt install --yes zsh emacs tree git-core unzip htop
-	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	sudo chsh -s `which zsh`
 	sudo usermod -s /bin/zsh ubuntu
+	sudo chsh -s `which zsh`
+
+install_mac:
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install wget exa htop
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	
-	
-exa:
+exa_ubuntu:
 	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
 	unzip exa-linux-x86_64-0.8.0.zip
 	sudo mv exa-linux-x86_64 /usr/local/bin/exa
 	sudo chmod ugo+x /usr/local/bin/exa
+
+
+zsh-extras:
+	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
+	git clone https://github.com/zdharma/fast-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions
+
+
+hc-zenburn-emacs:
+	git clone https://github.com/edran/hc-zenburn-emacs
+
+
 
 copy:
 	cp -v ~/rcfiles/.screenrc ~
@@ -25,12 +42,3 @@ copy:
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
 	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
-
-zsh-extras:
-	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
-	git clone https://github.com/zdharma/fast-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions
-
-
-hc-zenburn-emacs:
-	git clone https://github.com/edran/hc-zenburn-emacs
