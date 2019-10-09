@@ -9,16 +9,16 @@ setup_ubuntu:
 	sudo chsh -s `which zsh`
 
 setup_mac:
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew install wget exa htop
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	
+
 get_anaconda_ubuntu:
 	wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh -O ~/anaconda.sh
-	
+
 get_anaconda_mac:
 	https://repo.anaconda.com/archive/Anaconda3-2019.07-MacOSX-x86_64.sh -O ~/anaconda.sh
-	
+
 anaconda_install:
 	# -b installs in "silent mode"
 	bash ~/anaconda.sh -b -p $HOME/anaconda
@@ -32,7 +32,7 @@ exa_ubuntu:
 
 
 zsh-extras:
-	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
+	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme
 	git clone https://github.com/zdharma/fast-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 
