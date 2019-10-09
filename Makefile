@@ -21,8 +21,8 @@ get_anaconda_mac:
 
 anaconda_install:
 	# -b installs in "silent mode"
-	bash ~/anaconda.sh -b -p $HOME/anaconda
-	export PATH="$HOME/anaconda/bin:$PATH"
+	bash ~/anaconda.sh -b -p $$HOME/anaconda
+	export PATH="$$HOME/anaconda/bin:$$PATH"
 
 exa_ubuntu:
 	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
