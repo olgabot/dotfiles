@@ -93,9 +93,6 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
-# Alias hub as git
-eval "$(hub alias -s)"
-
 # Alias to Triton Supercomputing Cluster (TSCC)
 alias tscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 # added by travis gem
@@ -125,7 +122,7 @@ alias ndnd='ssh olga@ndnd.czbiohub.org'
 # Don't show user@hostname
 # From https://stackoverflow.com/questions/28491458/zsh-agnoster-theme-showing-machine-name
 # redefine prompt_context for hiding user@hostname
-prompt_context () { }
+#prompt_context () { }
 
 
 # Non-ugly colors in terminal emacs
@@ -137,11 +134,6 @@ export TERM=xterm-256color
 # added by Anaconda3 5.2.0 installer
 export PATH="$HOME/anaconda/bin:$PATH"
 
-
-# Add ssh keys
-eval $(ssh-agent)
-ssh-add ~/.ssh/aegea.launch.olgabot.Olgas-MacBook-Pro.pem
-ssh-add ~/.ssh/olgabot-czirna1.pem
 
 # Add Go packages to Path
 export PATH="$PATH:$HOME/go/bin"
@@ -162,4 +154,24 @@ alias alaunch='aegea launch --iam-role S3fromEC2'
 
 
 alias ls="exa --git"
-alias ll="ls -lha"
+alias ll="ls -lha --group"
+
+
+# Set GO paths
+export GOPATH=$HOME/gocode GOROOT=$HOME/go
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/olga/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/olga/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/olga/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/olga/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
