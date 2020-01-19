@@ -1,5 +1,11 @@
 
-;; load emacs 24's package system. Add MELPA repository.
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -8,8 +14,66 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  ;; (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t) ;
+  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
+
+;; Add Melpa to package list
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 ;; ALways have latest version of orgmode
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(require 'org)
+(require 'org-agenda)
+
+;; Add golang for orgmode-babel
+(add-to-list 'load-path "~/.emacs.d/manual-install/")
+(add-to-list 'load-path "~/code/rcfiles/")
+(require 'ob-go)
+
+;; Track books read in orgmode
+;; https://github.com/dfeich/org-clock-convenience
+;; Requires helm to be installed
+;;(require 'helm)
+;;(require 'org-books)
+
+
+(eval-and-compile
+  (require 'cl-lib)
+  (require 'use-package)
+  (setq use-package-verbose nil)
+  (setq use-package-expand-minimally t)
+  (load "org-settings"))
+
+
+
+;; Add system PATH
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
 
 ;; Zenburn color theme (dark with pastel)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -22,15 +86,24 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Add more todo states
-(setq org-todo-keywords
-      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "CANCELED" "DONE")))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (go-mode org-edna)))
+ '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/life.org" "~/Dropbox/self/biohub.org" "~/Dropbox/self/coat.org")))
+ '(org-agenda-start-with-log-mode t)
+ '(org-confirm-babel-evaluate nil)
+ '(org-default-notes-file "~/orgbiohub.orglife.org")
+ '(org-refile-use-outline-path (quote file))
+ '(package-selected-packages
+   (quote
+    (helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
  '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -39,13 +112,48 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Word-wrap orgmode files
-(add-hook 'org-mode-hook #'(lambda ()
+(setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
-                             ;; make the lines in the buffer wrap around the edges of the screen.
-
-                             ;; to press C-c q  or fill-paragraph ever again!
-                             (visual-line-mode)
-                             (org-indent-mode)))
+;; MOve subtrees to top-level headings across files
+(setq org-refile-use-outline-path 'file)
 
 
+
+;; turn on bracket match highlight
+(show-paren-mode 1)
+
+;; remember cursor position, for emacs 25.1 or later
+(save-place-mode 1)
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
+;; turn on highlighting current line
+(global-hl-line-mode 1)
+
+;; make cursor movement stop in between camelCase words.
+(global-subword-mode 1)
+
+;; auto insert closing bracket
+;;(electric-pair-mode 1)
+
+;; Set default font to Hack
+(add-to-list 'default-frame-alist '(font . "Hack-14"))
+
+
+;; Auto-reload files when they have changed on disk (e.g. for Emacs)
+(global-auto-revert-mode t)
+
+
+;; setup files ending in ".nf" or ".config" to open in groovy-mode
+(add-to-list 'auto-mode-alist '("\\.nf\\'" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\\.config\\'" . groovy-mode))
+
+;; Open orgmode agenda on startup
+(add-hook 'after-init-hook 'org-agenda-list)
+
+(setq initial-buffer-choice (lambda ()
+    (org-agenda-list 1)
+    (get-buffer "*Org Agenda*")))    
+;; (add-hook 'after-init-hook '(lambda () (org-agenda-list 1)))
