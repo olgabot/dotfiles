@@ -96,19 +96,19 @@ same directory as the org-buffer and insert a link to this file."
 
 ;; -- TODO states --
 
-(defvar org-mode-completion-keys
-  '((?d . "DONE")
-    (?g . "DELEGATED")
-    (?n . "NOTE")
-    (?r . "DEFERRED")
-    (?s . "STARTED")
-    (?t . "TODO")
-    (?e . "EPIC")
-    (?o . "STORY")
-    (?w . "WAITING")
-    (?x . "CANCELED")
-    (?y . "SOMEDAY")
-    ))
+; (defvar org-mode-completion-keys
+;   '((?d . "DONE")
+;     (?g . "DELEGATED")
+;     (?n . "NOTE")
+;     (?r . "DEFERRED")
+;     (?s . "STARTED")
+;     (?t . "TODO")
+;     (?e . "EPIC")
+;     (?o . "STORY")
+;     (?w . "WAITING")
+;     (?x . "CANCELED")
+;     (?y . "SOMEDAY")
+;     ))
 
 (eval-and-compile
   (defvar org-todo-state-map nil)
@@ -160,23 +160,44 @@ same directory as the org-buffer and insert a link to this file."
 
 
 ;; Custom capture location
-(setq org-default-notes-file (concat org-directory "~/code/self/inbox.org"))
+(setq org-default-notes-file (concat org-directory "~/Dropbox/self/inbox.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
 
-;; Set keyword faces
- '(org-todo-keyword-faces
-   (quote
-    (("TODO" :foreground "medium blue" :weight bold)
-     ("EPIC" :foreground "deep sky blue" :weight bold)
-     ("STORY" :foreground "royal blue" :weight bold)
-     ("RECUR" :foreground "cornflowerblue" :weight bold)
-     ("APPT" :foreground "medium blue" :weight bold)
-     ("NOTE" :foreground "brown" :weight bold)
-     ("STARTED" :foreground "dark orange" :weight bold)
-     ("WAITING" :foreground "red" :weight bold)
-     ("DELEGATED" :foreground "dark violet" :weight bold)
-     ("DEFERRED" :foreground "dark blue" :weight bold)
-     ("SOMEDAY" :foreground "dark blue" :weight bold)
-     ("PROJECT" :foreground "#088e8e" :weight bold))))
- '(org-todo-repeat-to-state "TODO")
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "RECUR(r)" "IN-PROGRESS(p@/!)" "WAITING(w@/!)" "|" "DELEGATED(e@/!)" "DEFERRED(f@/!)" "DONE(d!)" "CANCELED(c@)" "SOMEDAY(s)" )))
+
+
+;; ;; Set keyword faces
+;;  '(org-todo-keyword-faces
+;;    (quote
+;;     (("TODO" :foreground "medium blue" :weight bold)
+;;      ("EPIC" :foreground "deep sky blue" :weight bold)
+;;      ("STORY" :foreground "royal blue" :weight bold)
+;;      ("RECUR" :foreground "cornflowerblue" :weight bold)
+;;      ("APPT" :foreground "medium blue" :weight bold)
+;;      ("NOTE" :foreground "brown" :weight bold)
+;;      ("STARTED" :foreground "dark orange" :weight bold)
+;;      ("WAITING" :foreground "red" :weight bold)
+;;      ("DELEGATED" :foreground "dark violet" :weight bold)
+;;      ("DEFERRED" :foreground "dark blue" :weight bold)
+;;      ("SOMEDAY" :foreground "dark blue" :weight bold)
+;;      ("PROJECT" :foreground "#088e8e" :weight bold))))
+;;  '(org-todo-repeat-to-state "TODO")
+
+; ;; Set keyword faces
+;  '(org-todo-keyword-faces
+;    (quote
+;     (("TODO" :foreground "medium blue" :weight bold)
+;      ("EPIC" :foreground "deep sky blue" :weight bold)
+;      ("STORY" :foreground "royal blue" :weight bold)
+;      ("RECUR" :foreground "cornflowerblue" :weight bold)
+;      ("APPT" :foreground "medium blue" :weight bold)
+;      ("NOTE" :foreground "brown" :weight bold)
+;      ("STARTED" :foreground "dark orange" :weight bold)
+;      ("WAITING" :foreground "red" :weight bold)
+;      ("DELEGATED" :foreground "dark violet" :weight bold)
+;      ("DEFERRED" :foreground "dark blue" :weight bold)
+;      ("SOMEDAY" :foreground "dark blue" :weight bold)
+;      ("PROJECT" :foreground "#088e8e" :weight bold))))
+;  '(org-todo-repeat-to-state "TODO")
