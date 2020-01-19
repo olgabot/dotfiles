@@ -1,1 +1,0 @@
-org-books/org-books-get-details.el
