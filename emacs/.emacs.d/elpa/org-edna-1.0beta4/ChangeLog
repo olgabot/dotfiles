@@ -1,0 +1,34 @@
+2017-12-27  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit 'dca9cb6d19f9e28ad8fa267a84710703ff38e006'
+
+2017-12-23  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit '556e03be1068d746e3d672185987c433302229fa'
+
+2017-12-17  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit '1f8935e117918fab8c6ad700b627a67ac4a4f10c'
+
+2017-12-17  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit 'ea0f9fb914cccc1d127eea94bc4c607dbcd4dc7d'
+
+2017-05-29  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit '50657b33a26d77cd224621e07ff616527f671bdb'
+
+2017-05-28  Ian Dunn  <dunni@gnu.org>
+
+	Merge commit '7f863bd82effad75b108c191266d79391e2a4439' into
+	scratch/org-edna
+
+2017-05-21  Ian Dunn  <dunni@gnu.org>
+
+	Add 'packages/org-edna/' from commit
+	'ce425a365cc305142a6ec7ec95ebe5fd636100e3'
+
+	git-subtree-dir: packages/org-edna git-subtree-mainline:
+	07e5ab2a06f86a779cba517735cdb9c06c6f287b git-subtree-split:
+	ce425a365cc305142a6ec7ec95ebe5fd636100e3
+

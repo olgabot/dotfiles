@@ -1,0 +1,1 @@
+helm/helm-adaptive.el
