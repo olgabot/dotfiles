@@ -1,0 +1,21 @@
+[user]
+	name = Olga Botvinnik
+	email = olga.botvinnik@gmail.com
+[credential]
+	helper = osxkeychain
+[color]
+	ui = auto
+[branch]
+	autoSetupRebase = always
+[core]
+	autocrlf = input
+	excludesfile = /Users/olgabot/.gitignore
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	default = simple
+[pull]
+	rebase = true
