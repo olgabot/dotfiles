@@ -213,6 +213,5 @@ same directory as the org-buffer and insert a link to this file."
 ;; Auto-save org buffers to disk
 (add-hook 'auto-save-hook 'org-save-all-org-buffers)
 
-;; Auto-reload buffers when files on disk change
-((nil . ((eval . (auto-revert-mode 1)))))
+
 
