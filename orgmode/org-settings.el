@@ -110,55 +110,6 @@ same directory as the org-buffer and insert a link to this file."
 ;     (?y . "SOMEDAY")
 ;     ))
 
-(eval-and-compile
-  (defvar org-todo-state-map nil)
-  (define-prefix-command 'org-todo-state-map))
-
-(dolist (ckey org-mode-completion-keys)
-  (let* ((key (car ckey))
-         (label (cdr ckey))
-         (org-sym (intern (concat "my-org-todo-" (downcase label))))
-         (org-sym-no-logging
-          (intern (concat "my-org-todo-" (downcase label) "-no-logging")))
-         (org-agenda-sym
-          (intern (concat "my-org-agenda-todo-" (downcase label))))
-         (org-agenda-sym-no-logging
-          (intern (concat "my-org-agenda-todo-"
-                          (downcase label) "-no-logging"))))
-    (eval
-     `(progn
-        (defun ,org-sym ()
-          (interactive)
-          (org-todo ,label))
-        (bind-key (concat "C-c x " (char-to-string ,key)) ',org-sym
-                  org-mode-map)
-
-        (defun ,org-sym-no-logging ()
-          (interactive)
-          (let ((org-inhibit-logging t))
-            (org-todo ,label)))
-        (bind-key (concat "C-c x " (char-to-string  ,(upcase key)))
-                  ',org-sym-no-logging org-mode-map)
-
-        (defun ,org-agenda-sym ()
-          (interactive)
-          (let ((org-inhibit-logging
-                 (let ((style (org-entry-get
-                               (get-text-property (point) 'org-marker)
-                               "STYLE")))
-                   (and style (stringp style)
-                        (string= style "habit")))))
-            (org-agenda-todo ,label)))
-        (define-key org-todo-state-map [,key] ',org-agenda-sym)
-
-        (defun ,org-agenda-sym-no-logging ()
-          (interactive)
-          (let ((org-inhibit-logging t))
-            (org-agenda-todo ,label)))
-        (define-key org-todo-state-map [,(upcase key)]
-          ',org-agenda-sym-no-logging)))))
-
-
 ;; Custom capture location
 (setq org-default-notes-file (concat org-directory "~/Dropbox/self/inbox.org"))
 (define-key global-map "\C-cc" 'org-capture)
@@ -166,6 +117,57 @@ same directory as the org-buffer and insert a link to this file."
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "RECUR(r)" "IN-PROGRESS(p@/!)" "WAITING(w@/!)" "|" "DELEGATED(e@/!)" "DEFERRED(f@/!)" "DONE(d!)" "CANCELED(c@)" "SOMEDAY(s)" )))
+
+
+
+(eval-and-compile
+  (defvar org-todo-state-map nil)
+  (define-prefix-command 'org-todo-state-map))
+
+; (dolist (ckey org-mode-completion-keys)
+;   (let* ((key (car ckey))
+;          (label (cdr ckey))
+;          (org-sym (intern (concat "my-org-todo-" (downcase label))))
+;          (org-sym-no-logging
+;           (intern (concat "my-org-todo-" (downcase label) "-no-logging")))
+;          (org-agenda-sym
+;           (intern (concat "my-org-agenda-todo-" (downcase label))))
+;          (org-agenda-sym-no-logging
+;           (intern (concat "my-org-agenda-todo-"
+;                           (downcase label) "-no-logging"))))
+;     (eval
+;      `(progn
+;         (defun ,org-sym ()
+;           (interactive)
+;           (org-todo ,label))
+;         (bind-key (concat "C-c x " (char-to-string ,key)) ',org-sym
+;                   org-mode-map)
+
+;         (defun ,org-sym-no-logging ()
+;           (interactive)
+;           (let ((org-inhibit-logging t))
+;             (org-todo ,label)))
+;         (bind-key (concat "C-c x " (char-to-string  ,(upcase key)))
+;                   ',org-sym-no-logging org-mode-map)
+
+;         (defun ,org-agenda-sym ()
+;           (interactive)
+;           (let ((org-inhibit-logging
+;                  (let ((style (org-entry-get
+;                                (get-text-property (point) 'org-marker)
+;                                "STYLE")))
+;                    (and style (stringp style)
+;                         (string= style "habit")))))
+;             (org-agenda-todo ,label)))
+;         (define-key org-todo-state-map [,key] ',org-agenda-sym)
+
+;         (defun ,org-agenda-sym-no-logging ()
+;           (interactive)
+;           (let ((org-inhibit-logging t))
+;             (org-agenda-todo ,label)))
+;         (define-key org-todo-state-map [,(upcase key)]
+;           ',org-agenda-sym-no-logging)))))
+
 
 
 ;; ;; Set keyword faces
@@ -201,3 +203,16 @@ same directory as the org-buffer and insert a link to this file."
 ;      ("SOMEDAY" :foreground "dark blue" :weight bold)
 ;      ("PROJECT" :foreground "#088e8e" :weight bold))))
 ;  '(org-todo-repeat-to-state "TODO")
+
+
+
+
+;; --- Make Dropbox + Emacs + orgmode work nicely together ---
+;; From https://christiantietze.de/posts/2019/03/sync-emacs-org-files/
+
+;; Auto-save org buffers to disk
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
+;; Auto-reload buffers when files on disk change
+((nil . ((eval . (auto-revert-mode 1)))))
+
