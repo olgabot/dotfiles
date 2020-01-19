@@ -14,6 +14,7 @@ base=(
 useronly=(
     git
     orgmode
+    tmux
 )
 
 specialapps=(
