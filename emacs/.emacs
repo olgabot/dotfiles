@@ -14,6 +14,14 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
+(dolist (package '(use-package))
+   (unless (package-installed-p package)
+     (package-install package)))
+
+
+(use-package org
+   :ensure t)
+
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -39,13 +47,18 @@ There are two things you can do about this warning:
 
 ;; ALways have latest version of orgmode
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(require 'org)
-(require 'org-agenda)
+(dolist (package '(org helm transpose-frame))
+ (unless (package-installed-p package)
+   (package-install package))
+   (require package))
+
+;;(require 'org)
+;;(require 'org-agenda)
 
 ;; Add golang for orgmode-babel
 (add-to-list 'load-path "~/.emacs.d/manual-install/")
-(add-to-list 'load-path "~/code/rcfiles/")
-(require 'ob-go)
+(add-to-list 'load-path "~/code/dotfiles/orgmode")
+;;(require 'ob-go)
 
 ;; Track books read in orgmode
 ;; https://github.com/dfeich/org-clock-convenience
