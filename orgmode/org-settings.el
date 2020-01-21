@@ -215,3 +215,56 @@ same directory as the org-buffer and insert a link to this file."
 
 
 
+;; Org-clock-convenience to update timestamps
+(use-package org-clock-convenience
+  :ensure t
+  :bind (:map org-agenda-mode-map
+   	   ("<S-up>" . org-clock-convenience-timestamp-up)
+   	   ("<S-down>" . org-clock-convenience-timestamp-down)
+   	   ("ö" . org-clock-convenience-fill-gap)
+   	   ("é" . org-clock-convenience-fill-gap-both)))
+
+;; Use helm to clock into tasks
+(defun dfeich/helm-org-clock-in (marker)
+  "Clock into the item at MARKER"
+  (with-current-buffer (marker-buffer marker)
+    (goto-char (marker-position marker))
+    (org-clock-in)))
+(eval-after-load 'helm-org
+  '(nconc helm-org-headings-actions
+          (list
+           (cons "Clock into task" #'dfeich/helm-org-clock-in))))
+
+;; more helm configds
+(use-package helm-config
+  :demand t
+  :bind (( "<f5> <f5>" . helm-org-agenda-files-headings)
+      ( "<f5> a" . helm-apropos)
+      ( "<f5> A" . helm-apt)
+      ( "<f5> b" . helm-buffers-list)
+      ( "<f5> c" . helm-colors)
+      ( "<f5> f" . helm-find-files)
+      ( "<f5> i" . helm-semantic-or-imenu)
+      ( "<f5> k" . helm-show-kill-ring)
+      ( "<f5> K" . helm-execute-kmacro)
+      ( "<f5> l" . helm-locate)
+      ( "<f5> m" . helm-man-woman)
+      ( "<f5> o" . helm-occur)
+      ( "<f5> r" . helm-resume)
+      ( "<f5> R" . helm-register)
+      ( "<f5> t" . helm-top)
+      ( "<f5> u" . helm-ucs)
+      ( "<f5> p" . helm-list-emacs-process)
+      ( "<f5> x" . helm-M-x))
+  :config (progn
+   	 ;; extend helm for org headings with the clock in action
+   	 (defun dfeich/helm-org-clock-in (marker)
+   	   "Clock into the item at MARKER"
+   	   (with-current-buffer (marker-buffer marker)
+   	     (goto-char (marker-position marker))
+   	     (org-clock-in)))
+   	 (eval-after-load 'helm-org
+   	   '(nconc helm-org-headings-actions
+   		   (list
+   		    (cons "Clock into task" #'dfeich/helm-org-clock-in)))))
+  )
