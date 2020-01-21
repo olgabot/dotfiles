@@ -116,7 +116,7 @@ There are two things you can do about this warning:
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
-    (helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+    (org-clock-convenience helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
  '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
