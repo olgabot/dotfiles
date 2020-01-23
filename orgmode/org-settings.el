@@ -111,7 +111,7 @@ same directory as the org-buffer and insert a link to this file."
 ;     ))
 
 ;; Custom capture location
-(setq org-default-notes-file (concat org-directory "~/Dropbox/self/inbox.org"))
+(setq org-default-notes-file "~/Dropbox/self/inbox.org")
 (define-key global-map "\C-cc" 'org-capture)
 
 
