@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/olgabot/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -64,9 +64,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='emacs'
+  export EDITOR='emacs -nw --no-init-file'
 else
-  export EDITOR='emacs'
+  export EDITOR='emacs -nw --no-init-file'
 fi
 
 # Compilation flags
@@ -93,6 +93,9 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
+# Alias hub as git
+eval "$(hub alias -s)"
+
 # Alias to Triton Supercomputing Cluster (TSCC)
 alias tscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 # added by travis gem
@@ -106,14 +109,14 @@ alias fry=sshfry
 
 
 # CZ Biohub vpn
-alias czbvpn="sudo openconnect --user olga.botvinnik https://64.71.0.146 --servercert sha256:0b3c46f6bee2673ee9be9b4227f632fa87b52333949003f4f2d155a70241eacd"
+
+alias czbvpn="sudo openconnect --user olga.botvinnik https://64.71.0.146 --servercert sha256:0b3c46f6bee2673ee9be9b4227f632fa87b52333949003f4f2d155a70241eacd --authgroup HubVPN"
+alias biohubvpn=czbvpn
 
 IPYNB_PORT=7788
 alias tunnelfry="ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT botvinnik@fry.czbiohub.org  &"
 
-# SSH to NDND from biohub
-# Alias to ndnd
-alias ndnd='ssh olga@ndnd.czbiohub.org'
+alias mux=tmuxinator
 
 
 # added by Anaconda3 4.3.1 installer
@@ -122,7 +125,7 @@ alias ndnd='ssh olga@ndnd.czbiohub.org'
 # Don't show user@hostname
 # From https://stackoverflow.com/questions/28491458/zsh-agnoster-theme-showing-machine-name
 # redefine prompt_context for hiding user@hostname
-#prompt_context () { }
+prompt_context () { }
 
 
 # Non-ugly colors in terminal emacs
@@ -132,7 +135,9 @@ export TERM=xterm-256color
 #conda activate base
 
 # added by Anaconda3 5.2.0 installer
-export PATH="$HOME/anaconda/bin:$PATH"
+# export PATH="$HOME/anaconda/bin:$PATH"
+
+
 
 
 # Add Go packages to Path
@@ -146,6 +151,18 @@ alias tunnelndndrstudio="ssh -NL 8787:localhost:8787 olga@ndnd.czbiohub.org &"
 alias tunnelfrykeras="ssh -NL 7780:localhost:7780 botvinnik@fry.czbiohub.org  &"
 alias tunnelfryfloydhub="ssh -NL 8877:localhost:8877 botvinnik@fry.czbiohub.org  &"
 
+# IBM clusters
+alias hulk="ssh olga@hulk.czbiohub.org"
+alias fury="ssh olga@fury.czbiohub.org"
+alias euler="ssh olga@euler.czbiohub.org"
+
+# SSH to NDND from biohub
+# Alias to ndnd - 128 core machine
+alias ndnd='ssh olga@ndnd.czbiohub.org'
+
+# ndnd knockoff
+alias lrrr="ssh olga@lrrr.czbiohub.org"
+
 # Fix video not connected on mac
 alias fixvideo='sudo killall VDCAssistant'
 
@@ -153,25 +170,19 @@ alias fixvideo='sudo killall VDCAssistant'
 alias alaunch='aegea launch --iam-role S3fromEC2'
 
 
-alias ls="exa --git"
-alias ll="ls -lha --group"
+alias ls="exa --git --header"
+alias ll="ls -lha"
 
 
-# Set GO paths
-export GOPATH=$HOME/gocode GOROOT=$HOME/go
+# The new way of starting anaconda
+. /anaconda3/etc/profile.d/conda.sh
+conda activate
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/olga/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/olga/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/olga/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/olga/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+alias globalgitignore='cat ~/.gitignore >> .gitignore && git add .gitignore && git commit -m "Add global gitignore from olga"'
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+export TOWER_ACCESS_TOKEN=015843e5cefd7cf28cbb0df63bbf13324eb735c9
+export NXF_VER=20.01.0-rc1
