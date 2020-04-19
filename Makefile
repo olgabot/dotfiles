@@ -47,8 +47,9 @@ copy:
 	cp -v ~/rcfiles/.zshrc ~
 	cp -v ~/rcfiles/.gitconfig ~
 	cp -v ~/rcfiles/.gitignore ~
-	cp -v ~/rcfiles/.tmux.conf ~
-	cp -vr ~/rcfiles/.emacs.d ~/
+	cp -v ~/rcfiles/tmux/.tmux.conf ~
+	cp -vr ~/rcfiles/emacs/.emacs ~/
+	cp -vr ~/rcfiles/emacs/.emacs.d ~/
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
