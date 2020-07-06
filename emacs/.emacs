@@ -109,10 +109,11 @@ There are two things you can do about this warning:
  '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
  '(org-agenda-files
    (quote
-    ("~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/life.org" "~/Dropbox/self/biohub.org" "~/Dropbox/self/coat.org")))
+    ("~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/life.org" "~/Dropbox/self/biohub.org" "~/Dropbox/self/coat.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/orgbiohub.orglife.org")
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
@@ -170,3 +171,8 @@ There are two things you can do about this warning:
     (org-agenda-list 1)
     (get-buffer "*Org Agenda*")))    
 ;; (add-hook 'after-init-hook '(lambda () (org-agenda-list 1)))
+
+
+;; --- org-books --
+;; Set path to the reading list org file
+;; (setq org-books-file "~/Dropbox/self/booklist.org")

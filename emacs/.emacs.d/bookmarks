@@ -1,20 +1,20 @@
-;;;; Emacs Bookmark Format Version 1 ;;;;
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored-marker"
- (filename . "~/code/self/2019/biohub.org")
- (front-context-string . "** TODO Present ")
- (rear-context-string . "0-18 Fri 09:45]\n")
- (position . 187936))
+ (filename . "~/Dropbox/self/books.org")
+ (front-context-string . "* TODO Proust, M")
+ (rear-context-string . "ll's book club\n\n")
+ (position . 2921))
 ("org-capture-last-stored"
- (filename . "~/orgbiohub.orglife.org")
- (front-context-string . "** TODO Hedges, ")
- (rear-context-string . "C8UQJOA4U/edit#\n")
- (position . 1746))
+ (filename . "~/Dropbox/self/books.org")
+ (front-context-string . "* TODO Nabokov, ")
+ (rear-context-string . "  :katemulgrew:\n")
+ (position . 3333))
 ("org-refile-last-stored"
- (filename . "~/code/self/biohub.org")
- (front-context-string . "** TODO Update J")
- (rear-context-string . " Infrastructure\n")
- (position . 126486))
+ (filename . "~/Dropbox/self/life.org")
+ (front-context-string . "* Organize book ")
+ (rear-context-string . "2020-04-15 Wed]\n")
+ (position . 13724))
 )
