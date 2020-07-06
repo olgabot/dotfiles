@@ -3,18 +3,18 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored-marker"
- (filename . "~/Dropbox/self/books.org")
- (front-context-string . "* TODO Proust, M")
- (rear-context-string . "ll's book club\n\n")
- (position . 2921))
+ (filename . "~/Dropbox/self/biohub.org")
+ (front-context-string . "** TODO Long ter")
+ (rear-context-string . "2020-06-23 Tue]\n")
+ (position . 7336))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/self/books.org")
- (front-context-string . "* TODO Nabokov, ")
- (rear-context-string . "  :katemulgrew:\n")
- (position . 3333))
+ (filename . "~/Dropbox/self/inbox.org")
+ (front-context-string . "** TODO Long ter")
+ (rear-context-string . "core/kmermaid]]\n")
+ (position . 812))
 ("org-refile-last-stored"
- (filename . "~/Dropbox/self/life.org")
- (front-context-string . "* Organize book ")
- (rear-context-string . "2020-04-15 Wed]\n")
- (position . 13724))
+ (filename . "~/Dropbox/self/biohub.org")
+ (front-context-string . "** TODO Long ter")
+ (rear-context-string . "2020-06-23 Tue]\n")
+ (position . 7336))
 )

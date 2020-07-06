@@ -110,6 +110,7 @@ There are two things you can do about this warning:
  '(org-agenda-files
    (quote
     ("~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/life.org" "~/Dropbox/self/biohub.org" "~/Dropbox/self/coat.org")))
+
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/orgbiohub.orglife.org")
