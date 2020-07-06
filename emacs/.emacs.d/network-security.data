@@ -1,4 +1,4 @@
 (
- (:id "sha1:24c7a1e6369fef1e50de1deb1a9e5bbc68f80c8b" :fingerprint "sha1:47:95:a3:ee:f3:01:08:7a:55:e7:ea:06:98:f1:0d:76:47:4d:55:fd" :host "orgmode.org:443" :conditions (:insecure :unknown-ca :invalid))
- (:id "sha1:ccfd2cc2a08c89a9b10969be8c1e926954d53e28" :fingerprint "sha1:7c:ca:4d:e5:99:f7:d5:9a:79:6f:9a:17:5d:19:80:db:fa:00:15:8e" :host "stable.melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:24c7a1e6369fef1e50de1deb1a9e5bbc68f80c8b" :fingerprint "sha1:20:d7:4d:ac:eb:0c:87:ed:54:a9:7b:ab:c7:dd:65:3d:4e:3f:45:c4" :host "orgmode.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:ccfd2cc2a08c89a9b10969be8c1e926954d53e28" :fingerprint "sha1:8c:df:63:9d:75:fd:7b:6f:74:4b:c0:aa:38:11:09:b8:ed:4b:37:9b" :host "stable.melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
 )

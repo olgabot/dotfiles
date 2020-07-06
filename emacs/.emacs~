@@ -14,6 +14,14 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
+(dolist (package '(use-package))
+   (unless (package-installed-p package)
+     (package-install package)))
+
+
+(use-package org
+   :ensure t)
+
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -39,13 +47,18 @@ There are two things you can do about this warning:
 
 ;; ALways have latest version of orgmode
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(require 'org)
-(require 'org-agenda)
+(dolist (package '(org helm transpose-frame))
+ (unless (package-installed-p package)
+   (package-install package))
+   (require package))
+
+;;(require 'org)
+;;(require 'org-agenda)
 
 ;; Add golang for orgmode-babel
 (add-to-list 'load-path "~/.emacs.d/manual-install/")
-(add-to-list 'load-path "~/code/rcfiles/")
-(require 'ob-go)
+(add-to-list 'load-path "~/code/dotfiles/orgmode")
+;;(require 'ob-go)
 
 ;; Track books read in orgmode
 ;; https://github.com/dfeich/org-clock-convenience
@@ -93,17 +106,22 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(gnus-startup-file "~/code/self/2020/weekly.org")
  '(org-agenda-files
    (quote
-    ("~/code/self/papers.org" "~/code/self/books.org" "~/code/self/2020/weekly.org" "~/code/self/life.org" "~/code/self/biohub.org" "~/code/self/coat.org")))
+    ("~/Dropbox/self/papers.org"
+     "~/Dropbox/self/books.org"
+     "~/Dropbox/self/life.org"
+     "~/Dropbox/self/biohub.org"
+     "~/Dropbox/self/coat.org"
+     "~/Dropbox/self/2020/weekly.org"
+     "~/Dropbox/self/blog.org" )))
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
- '(org-default-notes-file "~/orgbiohub.orglife.org")
+ '(org-default-notes-file "~/Dropbox/self/inbox.org")
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
-    (helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+    (org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
  '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

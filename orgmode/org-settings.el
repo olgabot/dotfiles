@@ -278,7 +278,7 @@ same directory as the org-buffer and insert a link to this file."
          "* TODO %? %^g\nAdded on: %u\n")
 	("j" "Journal" entry (file+datetree "~/org/journal.org")
 	  "* %?\nEntered on %U\n  %i\n  %a")
-       
+
 	 )
       )
 
@@ -286,3 +286,9 @@ same directory as the org-buffer and insert a link to this file."
 ;; Enable orgmode habits
 (require 'org-habit)
 
+;; Enable easy templates with <s
+(require 'org-tempo)
+
+;; Github-compatible table of contents
+(require 'org-make-toc)
+(add-hook 'org-mode-hook #'org-make-toc-mode)
