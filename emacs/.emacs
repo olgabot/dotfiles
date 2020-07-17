@@ -109,14 +109,16 @@ There are two things you can do about this warning:
  '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
  '(org-agenda-files
    (quote
-    ("~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/blog.org" "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
+    ("~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/blog.org" "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/Dropbox/self/inbox.org")
+ '(org-habit-show-all-today t)
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
     (org-make-toc org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+ '(show-paren-mode t)
  '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -152,7 +154,7 @@ There are two things you can do about this warning:
 ;;(electric-pair-mode 1)
 
 ;; Set default font to Hack
-(add-to-list 'default-frame-alist '(font . "Hack-14"))
+;; (add-to-list 'default-frame-alist '(font . "Hack-14"))
 
 
 ;; Auto-reload files when they have changed on disk (e.g. for Emacs)
