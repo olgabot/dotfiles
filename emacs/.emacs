@@ -121,6 +121,7 @@ There are two things you can do about this warning:
  '(show-paren-mode t)
  '(word-wrap t))
 (custom-set-faces
+ '(default ((t (:height 180 :family "FantasqueSansMono Nerd Font"))))
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
