@@ -272,10 +272,10 @@ same directory as the org-buffer and insert a link to this file."
 
 ;; Custom capture templates
 (setq org-capture-templates
-      '(("t" "TODO" entry (file+headline)
-         "* TODO %?\n  %i\n  %a")
+      '(("t" "TODO" entry (file+headline "~/Dropbox/self/inbox.org" "Inbox")
+         "* TODO %?\nSCHEDULED: %t\nAdded on: %u\n%a")
 	("b" "Books to read" entry (file "~/Dropbox/self/books.org")
-         "* TODO %? %^g\nAdded on: %u\n")
+         "* TODO %? %^g\n Added on: %u\n")
 	("j" "Journal" entry (file+datetree "~/org/journal.org")
 	  "* %?\nEntered on %U\n  %i\n  %a")
 
