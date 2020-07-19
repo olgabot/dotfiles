@@ -109,7 +109,7 @@ There are two things you can do about this warning:
  '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
  '(org-agenda-files
    (quote
-    ("~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/blog.org" "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
+    ("~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org"  "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/Dropbox/self/inbox.org")
