@@ -14,7 +14,8 @@ setup_mac:
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	
 get_anaconda_ubuntu:
-	wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh -O ~/anaconda.sh
+	echo source ~/.bashrc >> ~/.bash_profile
+	curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh
 	
 get_anaconda_mac:
 	https://repo.anaconda.com/archive/Anaconda3-2019.07-MacOSX-x86_64.sh -O ~/anaconda.sh
