@@ -1,7 +1,7 @@
-rcfiles
+dotfiles
 =======
 
-Collection of rc files for easy portability
+Collection of run command (rc) / "dot" files (files that start with a `.`) for easy portability
 
 ## Usage (Ubuntu)
 
@@ -9,7 +9,7 @@ Collection of rc files for easy portability
 
 
 ```
-cd && git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Makefile ~ && cd && make all_ubuntu
+cd && git clone https://github.com/olgabot/dotfiles ~/dotfiles && cp ~/dotfiles/Makefile ~ && cd && make all_ubuntu
 ```
 
 
@@ -19,5 +19,5 @@ cd && git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Mak
 
 
 ```
-cd && git clone https://github.com/olgabot/rcfiles ~/rcfiles && cp ~/rcfiles/Makefile ~ && cd && make all_mac
+cd && git clone https://github.com/olgabot/dotfiles ~/dotfiles && cp ~/dotfiles/Makefile ~ && cd && make all_mac
 ```
