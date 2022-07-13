@@ -3,6 +3,12 @@ dotfiles
 
 Collection of run command (rc) / "dot" files (files that start with a `.`) for easy portability
 
+## Usage (Amazon Machine Linux)
+
+```
+cd && sudo yum install git tmux emacs htop unzip zsh -y
+```
+
 ## Usage (Ubuntu)
 
 1-liner to change to home directory, clone, and run init script. Mostly used for AWS EC2 images.
