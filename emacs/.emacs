@@ -19,8 +19,8 @@
      (package-install package)))
 
 
-(use-package org
-   :ensure t)
+;; (use-package org
+;;   :ensure t)
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -39,18 +39,18 @@ There are two things you can do about this warning:
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
-(package-initialize)
+;;(package-initialize)
 
 ;; Add Melpa to package list
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; ALways have latest version of orgmode
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(dolist (package '(org helm transpose-frame))
- (unless (package-installed-p package)
-   (package-install package))
-   (require package))
+;;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+;;(dolist (package '(org helm transpose-frame))
+;; (unless (package-installed-p package)
+;;   (package-install package))
+;;   (require package))
 
 ;;(require 'org)
 ;;(require 'org-agenda)
@@ -93,10 +93,10 @@ There are two things you can do about this warning:
 (load-theme 'hc-zenburn t)
 
 ;; Org-Mode
-     (global-set-key "\C-cl" 'org-store-link)
-     (global-set-key "\C-ca" 'org-agenda)
-     (global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
+;;     (global-set-key "\C-cl" 'org-store-link)
+;;     (global-set-key "\C-ca" 'org-agenda)
+;;     (global-set-key "\C-cc" 'org-capture)
+;;(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Add more todo states
 
@@ -107,31 +107,31 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org"  "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
- '(org-agenda-start-with-log-mode t)
- '(org-confirm-babel-evaluate nil)
- '(org-default-notes-file "~/Dropbox/self/inbox.org")
- '(org-habit-show-all-today t)
- '(org-refile-use-outline-path (quote file))
- '(package-selected-packages
-   (quote
-    (org-make-toc org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
- '(show-paren-mode t)
- '(word-wrap t))
+;; '(org-agenda-files
+;;   (quote
+;;    ("~/Dropbox/self/arcadia.org" "~/Dropbox/self/writing.org" "~/Dropbox/self/movies.org" "~/Dropbox/self/blog.org" "~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org" "~/Dropbox/self/biohub.org")))
+;; '(org-agenda-start-with-log-mode t)
+;; '(org-confirm-babel-evaluate nil)
+;; '(org-default-notes-file "~/Dropbox/self/inbox.org")
+;; '(org-habit-show-all-today t)
+;; '(org-refile-use-outline-path (quote file))
+;; '(org-tags-column -100)
+;; '(package-selected-packages
+;;   (quote
+;;    (org-make-toc org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+;; '(show-paren-mode t)
+;; '(word-wrap t))
 (custom-set-faces
- '(default ((t (:height 180 :family "FantasqueSansMono Nerd Font"))))
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:height 180 :family "FantasqueSansMono Nerd Font")))))
 
-(setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+;;(setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
 ;; MOve subtrees to top-level headings across files
-(setq org-refile-use-outline-path 'file)
+;;(setq org-refile-use-outline-path 'file)
 
 
 
@@ -167,11 +167,11 @@ There are two things you can do about this warning:
 (add-to-list 'auto-mode-alist '("\\.config\\'" . groovy-mode))
 
 ;; Open orgmode agenda on startup
-(add-hook 'after-init-hook 'org-agenda-list)
+;;(add-hook 'after-init-hook 'org-agenda-list)
 
-(setq initial-buffer-choice (lambda ()
-    (org-agenda-list 1)
-    (get-buffer "*Org Agenda*")))
+;;(setq initial-buffer-choice (lambda ()
+;;    (org-agenda-list 1)
+;;    (get-buffer "*Org Agenda*")))
 ;; (add-hook 'after-init-hook '(lambda () (org-agenda-list 1)))
 
 
