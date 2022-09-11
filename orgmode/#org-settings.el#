@@ -292,12 +292,3 @@ same directory as the org-buffer and insert a link to this file."
 ;; Github-compatible table of contents
 (require 'org-make-toc)
 (add-hook 'org-mode-hook #'org-make-toc-mode)
-
-;; Add agenda view with inactive timestamps
-(defun org-agenda-inactive ()
-  (interactive)
-  (let ((org-agenda-include-inactive-timestamps t))
-    (org-agenda))
-  )
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c b") 'org-agenda-inactive)

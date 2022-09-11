@@ -106,24 +106,22 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(gnus-startup-file "~/Dropbox/self/2020/weekly.org")
  '(org-agenda-files
    (quote
-    ("~/Dropbox/self/papers.org"
-     "~/Dropbox/self/books.org"
-     "~/Dropbox/self/life.org"
-     "~/Dropbox/self/biohub.org"
-     "~/Dropbox/self/coat.org"
-     "~/Dropbox/self/2020/weekly.org"
-     "~/Dropbox/self/blog.org" )))
+    ("~/Dropbox/self/career2020.org" "~/Dropbox/self/habits.org" "~/Dropbox/self/papers.org" "~/Dropbox/self/books.org" "~/Dropbox/self/life.org" "~/Dropbox/self/coat.org" "~/Dropbox/self/2020/weekly.org" "~/code/olgabot-pipeline-babysitting/2020-q2.org" "~/Dropbox/self/biohub.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/Dropbox/self/inbox.org")
+ '(org-habit-show-all-today t)
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
-    (org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+    (org-make-toc org helm-org transpose-frame helm-orgcard helm docker groovy-mode use-package csv-mode go-mode org-edna)))
+ '(show-paren-mode t)
  '(word-wrap t))
 (custom-set-faces
+ '(default ((t (:height 180 :family "FantasqueSansMono Nerd Font"))))
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -157,7 +155,7 @@ There are two things you can do about this warning:
 ;;(electric-pair-mode 1)
 
 ;; Set default font to Hack
-(add-to-list 'default-frame-alist '(font . "Hack-14"))
+;; (add-to-list 'default-frame-alist '(font . "Hack-14"))
 
 
 ;; Auto-reload files when they have changed on disk (e.g. for Emacs)
@@ -173,5 +171,10 @@ There are two things you can do about this warning:
 
 (setq initial-buffer-choice (lambda ()
     (org-agenda-list 1)
-    (get-buffer "*Org Agenda*")))    
+    (get-buffer "*Org Agenda*")))
 ;; (add-hook 'after-init-hook '(lambda () (org-agenda-list 1)))
+
+
+;; --- org-books --
+;; Set path to the reading list org file
+;; (setq org-books-file "~/Dropbox/self/booklist.org")
