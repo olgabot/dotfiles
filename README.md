@@ -6,7 +6,7 @@ Collection of run command (rc) / "dot" files (files that start with a `.`) for e
 ## Usage (Amazon Machine Linux)
 
 ```
-cd && sudo yum install git tmux emacs htop unzip zsh -y
+cd && sudo yum install git tmux emacs htop unzip zsh -y && git clone https://github.com/olgabot/dotfiles ~/dotfiles && cd dotfiles && make all_amazon_linux
 ```
 
 ## Usage (Ubuntu)
