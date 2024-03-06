@@ -93,8 +93,6 @@ alias sshtscc="ssh obotvinnik@tscc-login2.sdsc.edu"
 alias vim=emacs
 alias vi=emacs
 
-# Alias hub as git
-eval "$(hub alias -s)"
 
 # Alias to Triton Supercomputing Cluster (TSCC)
 alias tscc="ssh obotvinnik@tscc-login2.sdsc.edu"
