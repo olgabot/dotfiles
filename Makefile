@@ -1,8 +1,8 @@
 
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
-all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install set_zsh
+all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install set_zsh 
 
-all_amazon_linux: miniconda_linux zsh-extras copy set_zsh
+all_amazon_linux: miniconda_linux zsh-extras copy set_zsh rust lsd
 
 setup_ubuntu:
 	sudo apt update
@@ -38,6 +38,15 @@ exa_ubuntu:
 	unzip exa-linux-x86_64-0.8.0.zip
 	sudo mv exa-linux-x86_64 /usr/local/bin/exa
 	sudo chmod ugo+x /usr/local/bin/exa
+
+
+rust:
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+lsd:
+	# ls deluxe, rewrite of GNU ls
+	cargo install lsd
+
 
 set_zsh:
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
