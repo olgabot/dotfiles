@@ -1,8 +1,8 @@
 
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
-all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install
+all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install set_zsh
 
-all_amazon_linux: miniconda_linux zsh-extras copy
+all_amazon_linux: miniconda_linux zsh-extras copy set_zsh
 
 setup_ubuntu:
 	sudo apt update
@@ -39,6 +39,10 @@ exa_ubuntu:
 	sudo mv exa-linux-x86_64 /usr/local/bin/exa
 	sudo chmod ugo+x /usr/local/bin/exa
 
+set_zsh:
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+	sudo chsh -s /usr/bin/zsh $(whoami)
+
 
 zsh-extras:
 	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
@@ -52,13 +56,13 @@ hc-zenburn-emacs:
 
 
 copy:
-	cp -v ~/rcfiles/.screenrc ~
-	cp -v ~/rcfiles/.zshrc ~
-	cp -v ~/rcfiles/.gitconfig ~
-	cp -v ~/rcfiles/.gitignore ~
-	cp -v ~/rcfiles/tmux/.tmux.conf ~
-	cp -vr ~/rcfiles/emacs/.emacs ~/
-	cp -vr ~/rcfiles/emacs/.emacs.d ~/
+	cp -v ~/dotfiles/.screenrc ~
+	cp -v ~/dotfiles/.zshrc ~
+	cp -v ~/dotfiles/.gitconfig ~
+	cp -v ~/dotfiles/.gitignore ~
+	cp -v ~/dotfiles/tmux/.tmux.conf ~
+	cp -vr ~/dotfiles/emacs/.emacs ~/
+	cp -vr ~/dotfiles/emacs/.emacs.d ~/
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
