@@ -44,7 +44,7 @@ exa_ubuntu:
 
 
 rust:
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
 
 lsd:
 	# ls deluxe, rewrite of GNU ls
