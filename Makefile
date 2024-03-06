@@ -1,8 +1,8 @@
 
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
-all_mac: setup_mac get_zsh zsh-extras hc-zenburn-emacs anaconda_mac set_zsh copy
+all_mac: setup_mac get_zsh zsh-extras hc-zenburn-emacs anaconda_mac set_zsh copy_mac
 
-all_amazon_linux: miniconda_linux hc-zenburn-emacs zsh-extras get_zsh set_zsh_amazon_linux rust lsd copy 
+all_amazon_linux: miniconda_linux hc-zenburn-emacs zsh-extras get_zsh set_zsh_amazon_linux rust lsd copy_amazon_linux 
 
 setup_ubuntu:
 	sudo apt update
@@ -75,9 +75,8 @@ hc-zenburn-emacs:
 
 
 
-copy:
+copy_shared:
 	cp -v ~/dotfiles/.screenrc ~
-	cp -v ~/dotfiles/.zshrc ~
 	cp -v ~/dotfiles/.gitconfig ~
 	cp -v ~/dotfiles/.gitignore ~
 	cp -v ~/dotfiles/tmux/.tmux.conf ~
@@ -87,3 +86,9 @@ copy:
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
 	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
+
+copy_mac: copy_shared
+	cp -v ~/dotfiles/zsh/.zshrc ~
+
+copy_amazon_linux: copy_shared
+	cp -v ~/dotfiles/zsh/.zshrc_amazon_linux ~/.zshrc
