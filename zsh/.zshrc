@@ -146,30 +146,6 @@ export PATH="$PATH:$HOME/go/bin"
 # Tell Reflow to use ~/.aws folder for credentials
 export AWS_SDK_LOAD_CONFIG=1
 
-# Various tunnels
-alias tunnelndndrstudio="ssh -NL 8787:localhost:8787 olga@ndnd.czbiohub.org &"
-alias tunnelfrykeras="ssh -NL 7780:localhost:7780 botvinnik@fry.czbiohub.org  &"
-alias tunnelfryfloydhub="ssh -NL 8877:localhost:8877 botvinnik@fry.czbiohub.org  &"
-
-# IBM clusters
-alias hulk="ssh olga@hulk.czbiohub.org"
-alias fury="ssh olga@fury.czbiohub.org"
-alias euler="ssh olga@euler.czbiohub.org"
-
-# SSH to NDND from biohub
-# Alias to ndnd - 128 core machine
-alias ndnd='ssh olga@ndnd.czbiohub.org'
-
-# ndnd knockoff
-alias lrrr="ssh olga@lrrr.czbiohub.org"
-
-# Fix video not connected on mac
-alias fixvideo='sudo killall VDCAssistant'
-
-# Aegea launch with correct IAM role for s3 copying
-alias alaunch='aegea launch --iam-role S3fromEC2'
-
-
 alias ls="exa --git --header"
 alias ll="ls -lha"
 
@@ -183,6 +159,3 @@ alias globalgitignore='cat ~/.gitignore >> .gitignore && git add .gitignore && g
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-export TOWER_ACCESS_TOKEN=015843e5cefd7cf28cbb0df63bbf13324eb735c9
-export NXF_VER=20.01.0-rc1
