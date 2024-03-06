@@ -44,7 +44,7 @@ exa_ubuntu:
 
 
 rust:
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 lsd:
 	# ls deluxe, rewrite of GNU ls
@@ -69,7 +69,7 @@ zsh-extras:
 	git clone https://github.com/zdharma/fast-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
-	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
+	cp -r ~/fast-syntax-highlighting/F-Sy-H.plugin.zsh ~/.oh-my-zsh/plugins
 	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
 
 hc-zenburn-emacs:
