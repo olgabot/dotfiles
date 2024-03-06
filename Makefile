@@ -1,8 +1,8 @@
 
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
-all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install set_zsh 
+all_mac: setup_mac get_zsh zsh-extras hc-zenburn-emacs anaconda_mac set_zsh copy
 
-all_amazon_linux: miniconda_linux zsh-extras copy set_zsh rust lsd
+all_amazon_linux: miniconda_linux hc-zenburn-emacs zsh-extras get_zsh set_zsh_amazon_linux rust lsd copy 
 
 setup_ubuntu:
 	sudo apt update
@@ -33,6 +33,9 @@ anaconda_install:
 	bash ~/anaconda.sh -b -p ${HOME}/anaconda
 	export PATH="${HOME}/anaconda/bin:${PATH}"
 
+anaconda_mac: get_anaconda_mac anaconda_install
+
+
 exa_ubuntu:
 	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
 	unzip exa-linux-x86_64-0.8.0.zip
@@ -48,8 +51,16 @@ lsd:
 	cargo install lsd
 
 
-set_zsh:
+get_zsh:
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+set_zsh_amazon_linux:
+	sudo yum install util-linux-user -y
+	sudo chsh -s $(which zsh) $(whoami)
+
+
+
+set_zsh:
 	sudo chsh -s /usr/bin/zsh $(whoami)
 
 
