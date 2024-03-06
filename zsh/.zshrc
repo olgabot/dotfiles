@@ -144,8 +144,8 @@ export PATH="$PATH:$HOME/go/bin"
 # Tell Reflow to use ~/.aws folder for credentials
 export AWS_SDK_LOAD_CONFIG=1
 
-alias ls="exa --git --header"
-alias ll="ls -lha"
+alias ls="lsd"
+alias ll="ls -lha --git --header"
 
 
 # The new way of starting anaconda
@@ -157,3 +157,6 @@ alias globalgitignore='cat ~/.gitignore >> .gitignore && git add .gitignore && g
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+
+source "$HOME/.cargo/env"

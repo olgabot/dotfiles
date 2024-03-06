@@ -93,6 +93,10 @@ alias vim=emacs
 alias vi=emacs
 
 
+alias ls="lsd"
+alias ll="ls -lha --git --header"
+
+
 # CZ Biohub vpn
 
 alias czbvpn="sudo openconnect --user olga.botvinnik https://64.71.0.146 --servercert sha256:0b3c46f6bee2673ee9be9b4227f632fa87b52333949003f4f2d155a70241eacd --authgroup HubVPN"
