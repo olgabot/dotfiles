@@ -16,6 +16,10 @@ setup_mac:
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 
+setup_amazon_linux:
+
+	sudo yum groupinstall "Development Tools" -y
+
 miniconda_linux:
 	mkdir -p ~/miniconda3
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -45,6 +49,7 @@ exa_ubuntu:
 
 rust:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+	source "$$HOME/.cargo/env"
 
 lsd:
 	# ls deluxe, rewrite of GNU ls
