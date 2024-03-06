@@ -2,6 +2,8 @@
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
 all_mac: setup_mac zsh-extras hc-zenburn-emacs copy get_anaconda_mac anaconda_install
 
+all_amazon_linux: miniconda_linux zsh-extras copy
+
 setup_ubuntu:
 	sudo apt update
 	sudo apt install --yes zsh emacs tree git-core unzip htop
@@ -12,6 +14,12 @@ setup_mac:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install wget exa htop
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+
+miniconda_linux:
+	mkdir -p ~/miniconda3
+	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+	bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 	
 get_anaconda_ubuntu:
 	echo source ~/.bashrc >> ~/.bash_profile
