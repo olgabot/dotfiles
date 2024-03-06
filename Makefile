@@ -68,10 +68,13 @@ zsh-extras:
 	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
 	git clone https://github.com/zdharma/fast-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions
-
+	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
+	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
+	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
 
 hc-zenburn-emacs:
 	git clone https://github.com/edran/hc-zenburn-emacs
+	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 
 
 
@@ -82,10 +85,7 @@ copy_shared:
 	cp -v ~/dotfiles/tmux/.tmux.conf ~
 	cp -vr ~/dotfiles/emacs/.emacs ~/
 	cp -vr ~/dotfiles/emacs/.emacs.d ~/
-	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
-	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
-	cp -r ~/fast-syntax-highlighting ~/.oh-my-zsh/plugins
-	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
+
 
 copy_mac: copy_shared
 	cp -v ~/dotfiles/zsh/.zshrc ~
