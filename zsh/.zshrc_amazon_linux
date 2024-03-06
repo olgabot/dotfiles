@@ -90,9 +90,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias vim=emacs
 alias vi=emacs
 
-# Alias hub as git
-eval "$(hub alias -s)"
-
 
 # CZ Biohub vpn
 

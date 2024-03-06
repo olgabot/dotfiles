@@ -76,7 +76,9 @@ hc-zenburn-emacs:
 	git clone https://github.com/edran/hc-zenburn-emacs
 	cp -v ~/hc-zenburn-emacs/hc-zenburn-theme.el ~/.emacs.d/themes
 
-
+gh-cli: 
+	# install github cli
+	conda install --yes -c conda-forge gh
 
 copy_shared:
 	cp -v ~/dotfiles/.screenrc ~
