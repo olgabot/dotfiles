@@ -1,8 +1,12 @@
 [user]
 	name = Olga Botvinnik
 	email = olga.botvinnik@gmail.com
-[credential]
-	helper = osxkeychain
+[credential "https://github.com"]
+        helper =
+        helper = !/home/ec2-user/miniconda3/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+        helper =
+        helper = !/home/ec2-user/miniconda3/bin/gh auth git-credential
 [color]
 	ui = auto
 [branch]

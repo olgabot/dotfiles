@@ -103,3 +103,10 @@ copy_mac: copy_shared
 
 copy_amazon_linux: copy_shared
 	cp -v ~/dotfiles/zsh/.zshrc_amazon_linux ~/.zshrc
+
+copy_jupyter:
+	mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
+	cp -v ~/dotfiles/jupyter/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings \
+		~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
+	cp -v ~/dotfiles/jupyter/.jupyter/lab/user-settings/@ryantam626/jupyterlab_code_formatter/settings.jupyterlab-settings \
+		~/.jupyter/lab/user-settings/@ryantam626/jupyterlab_code_formatter/
