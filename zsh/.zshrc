@@ -144,7 +144,7 @@ export PATH="$PATH:$HOME/go/bin"
 # Tell Reflow to use ~/.aws folder for credentials
 export AWS_SDK_LOAD_CONFIG=1
 
-alias ls="lsd"
+alias ls="lsd --config-file ~/.config/lsd/config.yml"
 alias ll="ls -lha --git --header"
 
 

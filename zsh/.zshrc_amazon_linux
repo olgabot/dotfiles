@@ -93,7 +93,7 @@ alias vim=emacs
 alias vi=emacs
 
 
-alias ls="lsd"
+alias ls="lsd --config-file ~/.config/lsd/config.yml"
 alias ll="ls -lha --git --header"
 
 
