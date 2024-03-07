@@ -108,5 +108,6 @@ copy_jupyter:
 	mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
 	cp -v ~/dotfiles/jupyter/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings \
 		~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
+	mkdir -p ~/.jupyter/lab/user-settings/@ryantam626/jupyterlab_code_formatter/
 	cp -v ~/dotfiles/jupyter/.jupyter/lab/user-settings/@ryantam626/jupyterlab_code_formatter/settings.jupyterlab-settings \
 		~/.jupyter/lab/user-settings/@ryantam626/jupyterlab_code_formatter/
