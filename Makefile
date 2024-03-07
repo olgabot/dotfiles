@@ -93,6 +93,10 @@ copy_shared:
 	cp -vr ~/dotfiles/emacs/.emacs ~/
 	cp -vr ~/dotfiles/emacs/.emacs.d ~/
 
+copy_lsd:
+	# ensure the config dir is there if it's not already
+	mkdir ~/.config
+	cp -vr ~/dotfiles/lsd/.config/lsd ~/.config/
 
 copy_mac: copy_shared
 	cp -v ~/dotfiles/zsh/.zshrc ~
