@@ -1,3 +1,8 @@
+# Ignore cloned repos of zsh settings and themes
+agnosterzak-ohmyzsh-theme
+fast-syntax-highlighting
+zsh-autosuggestions
+
 # General
 .DS_Store
 .AppleDouble
