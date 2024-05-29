@@ -49,9 +49,9 @@ exa_ubuntu:
 
 rust:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-	source "$$HOME/.cargo/env"
+	source "$$HOME/.cargo/env"s
 
-lsd:
+lsd: rust copy_lsd
 	# ls deluxe, rewrite of GNU ls
 	cargo install lsd
 
@@ -68,14 +68,17 @@ set_zsh_amazon_linux:
 set_zsh:
 	sudo chsh -s /usr/bin/zsh $(whoami)
 
+zsh: zsh-extras zsh_copy
 
 zsh-extras:
 	git clone https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme 
 	git clone https://github.com/zdharma/fast-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions
-	cp -v ~/agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
-	cp -r ~/fast-syntax-highlighting/F-Sy-H.plugin.zsh ~/.oh-my-zsh/plugins
-	cp -r ~/zsh-autosuggestions ~/.oh-my-zsh/plugins
+
+zsh_copy:
+	cp -v agnosterzak-ohmyzsh-theme/agnosterzak.zsh-theme ~/.oh-my-zsh/themes
+	cp -r fast-syntax-highlighting ~/.oh-my-zsh/plugins
+	cp -r zsh-autosuggestions ~/.oh-my-zsh/plugins
 
 hc-zenburn-emacs:
 	git clone https://github.com/edran/hc-zenburn-emacs
@@ -95,7 +98,7 @@ copy_shared:
 
 copy_lsd:
 	# ensure the config dir is there if it's not already
-	mkdir ~/.config
+	mkdir -p ~/.config
 	cp -vr ~/dotfiles/lsd/.config/lsd ~/.config/
 
 copy_mac: copy_shared

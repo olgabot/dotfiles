@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx python aws tmux terminalapp common-aliases zsh-autosuggestions)
+plugins=(git macos python aws tmux common-aliases zsh-autosuggestions brew)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/plugins/fast-syntax-highlighting/F-Sy-H.plugin.zsh
@@ -148,9 +148,9 @@ alias ls="lsd --config-file ~/.config/lsd/config.yml"
 alias ll="ls -lha --git --header"
 
 
-# The new way of starting anaconda
-. /anaconda3/etc/profile.d/conda.sh
-conda activate
+# # The new way of starting anaconda
+# . /anaconda3/etc/profile.d/conda.sh
+# conda activate
 
 
 alias globalgitignore='cat ~/.gitignore >> .gitignore && git add .gitignore && git commit -m "Add global gitignore from olga"'
@@ -159,4 +159,19 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 
-source "$HOME/.cargo/env"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/olga/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/olga/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/olga/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/olga/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+. "$HOME/.cargo/env"
