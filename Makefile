@@ -2,7 +2,13 @@
 all_ubuntu: setup_ubuntu exa_ubuntu zsh-extras hc-zenburn-emacs copy get_anaconda_ubuntu anaconda_install
 all_mac: setup_mac get_zsh zsh-extras hc-zenburn-emacs anaconda_mac set_zsh copy_mac
 
-all_amazon_linux: miniconda_linux setup_amazon_linux get_zsh zsh set_zsh_amazon_linux copy_amazon_linux gh-cli rust lsd  
+all_amazon_linux: miniconda_linux setup_amazon_linux get_zsh zsh set_zsh_amazon_linux copy_amazon_linux 
+	exit
+
+
+# These items need you to restart 
+all_amazon_linux_after_exit: gh-cli rust lsd
+
 
 setup_ubuntu:
 	sudo apt update
@@ -49,7 +55,7 @@ exa_ubuntu:
 
 rust:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-	source "$$HOME/.cargo/env"s
+	source "$$HOME/.cargo/env"
 
 lsd: rust copy_lsd
 	# ls deluxe, rewrite of GNU ls
@@ -66,7 +72,7 @@ set_zsh_amazon_linux:
 
 
 set_zsh:
-	sudo chsh -s /usr/bin/zsh $(whoami)
+	sudo chsh -s /usr/bin/zsh $$(whoami)
 
 zsh: zsh-extras zsh_copy
 
