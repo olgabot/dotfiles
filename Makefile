@@ -61,7 +61,7 @@ get_zsh:
 
 set_zsh_amazon_linux:
 	sudo yum install util-linux-user -y
-	sudo chsh -s $(which zsh) $(whoami)
+	sudo chsh -s $$(which zsh) $$(whoami)
 
 
 
